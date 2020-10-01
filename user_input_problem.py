@@ -1,12 +1,12 @@
-def user_input(prompt, preced=None):
+def user_input(prompt, before=None):
     '''
     prompt is displayed to user before they input anything, must be a string
-    preced is on the same line before the users input, must be a string
+    before is on the same line before the users input, must be a string
     '''
     # not unit testible, requires user input
     print(prompt, end='')
     if preced:
-        return input(preced)
+        return input(before)
     return input()
     
 
