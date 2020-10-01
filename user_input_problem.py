@@ -5,7 +5,7 @@ def user_input(prompt, before=None):
     '''
     # not unit testible, requires user input
     print(prompt, end='')
-    if preced:
+    if before:
         return input(before)
     return input()
     
