@@ -95,3 +95,36 @@ class User_Input():
             location = input_text(self.prompt, spaces=True, symbols=',./&?!:;()[]-+%')
 
         return location
+
+
+# unittests
+import unittest
+
+class Test_User_Input(unittest.TestCase):
+    def test_check_confirm(self):
+        from utility.user_input import check_confirm
+
+        # true
+        self.assertTrue(check_confirm('y'))
+        self.assertTrue(check_confirm('Y'))
+        # false
+        self.assertFalse(check_confirm('n'))
+        self.assertFalse(check_confirm('N'))
+        # raise errors
+        with self.assertRaises(TypeError):
+            check_confirm(1.5)
+            check_confirm(7)
+            check_confirm([x for x in range(5)])
+            check_confirm(None)
+
+    def test_check_text(self):
+        from utility.user_input import check_text
+
+        # true
+        self.assertTrue(check_text('hello'))
+        self.assertTrue(check_text('hello world', spaces=True))
+        self.assertTrue(check_text('hello, world/earth & mars', spaces=True, symbols=',&/'))
+
+        # false
+        self.assertFalse(check_text('hello world'))
+        self.assertFalse(check_text('hello, world/earth & mars'))
