@@ -97,6 +97,15 @@ class User_Input():
         return location
 
 
+# for completeness, from utility.utility
+def add_newlines(string):
+    if string[0] != '\n':
+        string = f'\n{string}'
+    if string[-1] != '\n':
+        string += '\n'
+    
+    return string
+
 # unittests
 import unittest
 
